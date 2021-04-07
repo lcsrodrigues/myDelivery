@@ -1,5 +1,14 @@
-const Home = () =>{
-    return <div><h1>Home</h1></div>
+import { Header, Body, Footer, Wizard } from '../public/components';
+
+const Home = () => {
+    return (
+        <>
+            <Header />
+            <Wizard />
+            <Body />
+            <Footer />
+        </>
+    )
 }
 
 export default Home;
