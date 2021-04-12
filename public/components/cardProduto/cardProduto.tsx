@@ -1,9 +1,20 @@
+import React, {useState} from 'react';
 import style from './cardProduto.module.scss';
 import ICardProduto from './../../interface/ICardProduto';
 
 export function CardProduto({name, image, price, description, ...props}:ICardProduto) {
+    
+    const [IsSelected, setIsSelected] = useState(false);
+
+    const changeCheck = () =>{
+        setIsSelected(!IsSelected);
+        if(!IsSelected){
+            console.log(price);
+        }
+    }
+
     return (
-        <div className={style.cardProduto}>
+        <div className={`${style.cardProduto} ${IsSelected ? style.selected : ''}`} onClick={() => changeCheck()}>
             <div className={style.name}>
                 <span>{name}</span>
             </div>

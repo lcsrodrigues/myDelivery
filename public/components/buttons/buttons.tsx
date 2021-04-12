@@ -7,3 +7,11 @@ export function BtnEnviarPedido(){
         </div>
     )
 }
+
+export function BtnFiltrar(){
+    return(
+        <div className={style.btnFiltrar}>
+            <span>Filtrar</span>
+        </div>
+    )
+}

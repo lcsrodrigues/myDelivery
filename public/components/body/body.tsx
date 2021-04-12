@@ -1,10 +1,13 @@
 import style from './body.module.scss';
-import { CardProduto, Maps, CloseOrder } from '../../components'
+import { CardProduto, Maps, CloseOrder, Filter } from '../../components'
 
 export function Body() {
     return (
         <div className={style.body}>
             <div className={style.container}>
+            <section className={style.sectionFilter}>
+                    <Filter />
+                </section>
                 <section className={style.sectionProduto}>
                     <CardProduto name={"Delicia de Chocolate"} image={"../../images/bolo-chocolate.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
                     <CardProduto name={"Delicia de Morango"} image={"../../images/bolo-morango.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />

@@ -7,6 +7,9 @@
         width: $container;
         margin: 0 auto;
         padding: 30px 0;
+        .sectionFilter{
+            padding: 10px;
+        }
         .sectionProduto {
             display: flex;
             justify-content: space-between;

@@ -6,3 +6,4 @@ export * from './buttons/buttons';
 export * from './cardProduto/cardProduto';
 export * from './maps/maps';
 export * from './closeOrder/closeOrder';
+export * from './filter/filter';
