@@ -1,15 +1,21 @@
-import React, {useState} from 'react';
+import React, { useState, useContext } from 'react';
 import style from './cardProduto.module.scss';
 import ICardProduto from './../../interface/ICardProduto';
+import { MyGlobalContext } from './../../components/Context/PriceContext';
 
-export function CardProduto({name, image, price, description, ...props}:ICardProduto) {
-    
+export function CardProduto({ name, image, price, description, ...props }: ICardProduto) {
+
     const [IsSelected, setIsSelected] = useState(false);
+    const { totalPrice, setTotalPrice, produtos, setProdutos } = useContext(MyGlobalContext);
 
-    const changeCheck = () =>{
+    const changeCheck = () => {
         setIsSelected(!IsSelected);
-        if(!IsSelected){
-            console.log(price);
+        if (!IsSelected) {
+            setProdutos(produtos + 1);
+            setTotalPrice(totalPrice + price);
+        }else{
+            setProdutos(produtos - 1);
+            setTotalPrice(totalPrice - price);
         }
     }
 
