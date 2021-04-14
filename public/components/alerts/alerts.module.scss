@@ -1,0 +1,13 @@
+@import "./../../css/commons.module.scss";
+
+.alerts{
+    right: 0;
+    width: 450px;
+    height: 30px;
+    background-color: $primaryColor;
+    border-radius: 5px 0 0 5px;
+    position: fixed;
+    top: 5px;
+    text-align: center;
+    color: #fff;
+}

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import style from './closeOrder.module.scss';
 import { BtnEnviarPedido } from '../../components';
-import { MyGlobalContext } from '../Context/PriceContext';
+import { MyGlobalContext } from '../context/GlobalContext';
 
 export function CloseOrder() {
 
@@ -14,7 +14,7 @@ export function CloseOrder() {
                     <span><strong>{produtos}</strong> PRODUTO(S) SELECIONADO(S)</span>
                 </div>
                 <div className={style.priceTotal}>
-                    <span><strong>R$ {totalPrice}</strong> VALOR TOTAL</span>
+                    <span><strong>R$ {Math.round(totalPrice *100)/100}</strong> VALOR TOTAL</span>
                 </div>
             </div>
             <div className={style.sideRight}>

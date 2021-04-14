@@ -7,3 +7,5 @@ export * from './cardProduto/cardProduto';
 export * from './maps/maps';
 export * from './closeOrder/closeOrder';
 export * from './filter/filter';
+export * from './address/address';
+export * from './alerts/alerts';

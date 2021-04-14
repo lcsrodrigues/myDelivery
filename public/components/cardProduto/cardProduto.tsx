@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import style from './cardProduto.module.scss';
 import ICardProduto from './../../interface/ICardProduto';
-import { MyGlobalContext } from './../../components/Context/PriceContext';
+import { MyGlobalContext } from '../context/GlobalContext';
 
 export function CardProduto({ name, image, price, description, ...props }: ICardProduto) {
 
