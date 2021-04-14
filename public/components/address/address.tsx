@@ -19,6 +19,7 @@ export function Address() {
 
     useEffect(() => {
         const completeAddress = () => {
+
             axios.get(`https://viacep.com.br/ws/${cep}/json/`)
                 .then(response => {
                     console.log(response);

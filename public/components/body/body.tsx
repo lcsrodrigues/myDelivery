@@ -28,8 +28,10 @@ export function Body() {
                         <CardProduto name={"Delicia de Cenoura com Chocolate"} image={"../../images/bolo-cenoura-chocolate.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
                         <CardProduto name={"Delicia de Coco"} image={"../../images/bolo-coco.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
                     </section>
-                    <section className={style.sectionMapsOrAdress}>
+                    <section className={style.sectionAddress}>
                         <Address />
+                    </section>
+                    <section className={style.sectionMaps}>
                         <Maps />
                     </section>
                     <section className={style.sectionCloseOrder}>

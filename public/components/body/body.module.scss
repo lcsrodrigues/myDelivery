@@ -7,7 +7,7 @@
         width: $container;
         margin: 0 auto;
         padding: 30px 0;
-        .sectionFilter{
+        .sectionFilter {
             padding: 10px;
         }
         .sectionProduto {
@@ -15,10 +15,13 @@
             justify-content: space-between;
             flex-wrap: wrap;
         }
-        .sectionMapsOrAdress{
+        .sectionMaps {
             padding: 10px;
         }
-        .sectionCloseOrder{
+        .sectionAddress {
+            padding: 10px;
+        }
+        .sectionCloseOrder {
             padding: 10px;
         }
     }
