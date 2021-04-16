@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './body.module.scss';
 import { CardProduto, Maps, CloseOrder, Filter, Address, Alerts } from '../../components';
 import { MyGlobalContext } from '../context/GlobalContext';
+import axios from 'axios';
 
 export function Body() {
 
@@ -9,6 +10,26 @@ export function Body() {
     const [produtos, setProdutos] = useState(0);
     const [alertMsg, setAlertMsg] = useState("");
     const [isVisible, setIsVisible] = useState(false);
+    const [menu, setMenu] = useState([]);
+
+    useEffect(() => {
+        const getAllProdutos = () => {
+            axios.get('http://webapimydelivery.com.br/Cardapio')
+                .then(response => {
+                    setMenu(response.data);
+                    console.log(response.data)
+                }).catch(err => { console.log(err) })
+        }
+
+        getAllProdutos();
+    }, []);
+
+    const limitDesc = (descricao) => {
+        if(descricao.length > 170){
+            return descricao.substring(0,170) + "...";
+        }
+        return descricao;
+    }
 
     return (
         <MyGlobalContext.Provider value={{ totalPrice, setTotalPrice, produtos, setProdutos, alertMsg, setAlertMsg, isVisible, setIsVisible }}>
@@ -19,14 +40,14 @@ export function Body() {
                         <Filter />
                     </section>
                     <section className={style.sectionProduto}>
-                        <CardProduto name={"Delicia de Chocolate"} image={"../../images/bolo-chocolate.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
-                        <CardProduto name={"Delicia de Morango"} image={"../../images/bolo-morango.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
-                        <CardProduto name={"Delicia de Paçoca"} image={"../../images/bolo-pacoca.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
-                        <CardProduto name={"Delicia de Ninho com Nutella"} image={"../../images/bolo-ninho-nutella.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
-                        <CardProduto name={"Delicia de Maracujá"} image={"../../images/bolo-maracuja.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
-                        <CardProduto name={"Delicia de Limão"} image={"../../images/bolo-limao.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
-                        <CardProduto name={"Delicia de Cenoura com Chocolate"} image={"../../images/bolo-cenoura-chocolate.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
-                        <CardProduto name={"Delicia de Coco"} image={"../../images/bolo-coco.jpg"} price={9.99} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"} />
+                        {
+                            menu.length &&
+                            menu.map((item) => {
+                                return (
+                                    <CardProduto name={item.TITULO} image={`../../images/${item.IMAGEM}`} price={item.PRECO} description={limitDesc(item.DESCRICAO)} key={item.id} />
+                                )
+                            })
+                        }
                     </section>
                     <section className={style.sectionAddress}>
                         <Address />
