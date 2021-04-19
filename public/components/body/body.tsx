@@ -14,7 +14,13 @@ export function Body() {
 
     useEffect(() => {
         const getAllProdutos = () => {
-            axios.get('http://webapimydelivery.com.br/Cardapio')
+            axios.get('http://webapimydelivery.com.br/Cardapio',
+                {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Accept': 'application/json'
+                    }
+                })
                 .then(response => {
                     setMenu(response.data);
                     console.log(response.data)
@@ -25,8 +31,8 @@ export function Body() {
     }, []);
 
     const limitDesc = (descricao) => {
-        if(descricao.length > 170){
-            return descricao.substring(0,170) + "...";
+        if (descricao.length > 170) {
+            return descricao.substring(0, 170) + "...";
         }
         return descricao;
     }
