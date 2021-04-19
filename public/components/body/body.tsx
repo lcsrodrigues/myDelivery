@@ -14,7 +14,7 @@ export function Body() {
 
     useEffect(() => {
         const getAllProdutos = () => {
-            axios.get('http://webapimydelivery.com.br/Cardapio',
+            axios.get('https://webapimydelivery.com.br/Cardapio',
                 {
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
