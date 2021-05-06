@@ -3,7 +3,7 @@
 .btnEnviarPedido {
     width: 220px;
     height: 45px;
-    background-color: #FFF;
+    background-color: #fff;
     color: $primaryColor;
     font-weight: bold;
     text-transform: uppercase;
@@ -14,10 +14,10 @@
     cursor: pointer;
 }
 
-.btnFiltrar{
+.btnFiltrar {
     width: 220px;
     height: 45px;
-    background-color: #FFF;
+    background-color: #fff;
     color: $primaryColor;
     font-weight: bold;
     text-transform: uppercase;
@@ -28,7 +28,21 @@
     cursor: pointer;
 }
 
-.btnLogar{
+.btnLogar {
+    width: 220px;
+    height: 45px;
+    background-color: $primaryColor;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.btnSalvar {
     width: 220px;
     height: 45px;
     background-color: $primaryColor;

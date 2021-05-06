@@ -1,6 +1,7 @@
 import styles from '../public/css/login.module.scss';
 import { Header, Footer } from '../public/components'
 import { BtnLogar } from '../public/components/buttons/buttons';
+import { Input } from '../public/components/input/Input';
 
 const Login = () => {
     return (
@@ -16,8 +17,8 @@ const Login = () => {
                             <span>LOGIN</span>
                         </div>
                         <div className={styles.boxLoginContent}>
-                            <input type={"text"} placeholder={"Email"} />
-                            <input type={"password"} placeholder={"Senha"} />
+                            <Input type={"text"} placeholder={"Email"} />
+                            <Input type={"password"} placeholder={"Senha"} />
                         </div>
                         <div className={styles.boxLoginActions}>
                             <BtnLogar />

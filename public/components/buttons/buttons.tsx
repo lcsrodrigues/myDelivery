@@ -1,6 +1,8 @@
 import style from './buttons.module.scss';
 import { useRouter } from 'next/router';
 import { routerEnum } from '../../enum/enum';
+import { useContext } from 'react';
+import { MyGlobalContext } from '../context/GlobalContext';
 
 export function BtnEnviarPedido() {
     return (
@@ -29,6 +31,22 @@ export function BtnLogar() {
     return (
         <div className={style.btnLogar} onClick={(e) => clickEvent(e)}>
             <span>Logar</span>
+        </div>
+    )
+}
+
+export function BtnSalvar() {
+    const { setIsVisible } = useContext(MyGlobalContext);
+
+    const clickEvent = (e) => {
+        e.preventDefault();
+        setIsVisible(true);
+        console.log("salvar");
+    }
+
+    return (
+        <div className={style.btnSalvar} onClick={(e) => clickEvent(e)}>
+            <span>Salvar</span>
         </div>
     )
 }

@@ -1,0 +1,33 @@
+@import "./../../css/commons.module.scss";
+
+.modalNovoProduto {
+    width: 992px;
+    min-height: 450px;
+    background-color: #fdfdfd;
+    border-radius: 5px 0 0 5px;
+    position: fixed;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
+    box-shadow: 0px 5px 75px rgb(0 0 0 / 60%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    .header {
+        background-color: $primaryColor;
+        height: 50px;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        span {
+            color: #fff;
+        }
+    }
+    .content{
+        padding: 10px;
+    }
+}
