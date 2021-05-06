@@ -1,16 +1,10 @@
-import { Header, Footer, Wizard } from '../public/components';
+import { Header, Footer } from '../public/components';
 import React, { useState, useEffect } from 'react';
 import style from '../public/css/listaPedidos.module.scss';
-import { CardProdutoAdm, Alerts } from '../public/components';
-import { MyGlobalContext } from '../public/components/context/GlobalContext';
+import { CardProdutoAdm } from '../public/components';
 import axios from 'axios';
 
 const ListaPedidos = () => {
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [produtos, setProdutos] = useState(0);
-    const [alertMsg, setAlertMsg] = useState("");
-    const [isVisible, setIsVisible] = useState(false);
-    const [produtoSelected, setProdutoSelected] = useState(false);
     const [menu, setMenu] = useState([]);
 
     useEffect(() => {
@@ -34,7 +28,6 @@ const ListaPedidos = () => {
     return (
         <>
             <Header />
-            <MyGlobalContext.Provider value={{ totalPrice, setTotalPrice, produtos, setProdutos, alertMsg, setAlertMsg, isVisible, setIsVisible, produtoSelected, setProdutoSelected }}>
                 <div className={style.body}>
                     <div className={style.container}>
                         <section className={style.sectionProduto}>
@@ -56,7 +49,6 @@ const ListaPedidos = () => {
                         </section>
                     </div>
                 </div>
-            </MyGlobalContext.Provider>
             <Footer />
         </>
     )
