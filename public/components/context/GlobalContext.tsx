@@ -7,10 +7,14 @@ export type GlobalContent = {
     setProdutos: (p: number) => void
     alertMsg: string
     setAlertMsg: (a: string) => void
+    typeAlert: string
+    setTypeAlert: (s: string) => void
     isVisible: boolean
     setIsVisible: (v: boolean) => void
-    produtoSelected:boolean
-    setProdutoSelected:(p: boolean) => void
+    produtoSelected: boolean
+    setProdutoSelected: (p: boolean) => void
+    showModalProduto: boolean
+    setShowModalProduto: (v: boolean) => void
 };
 
 export const MyGlobalContext = createContext<GlobalContent>({
@@ -20,8 +24,12 @@ export const MyGlobalContext = createContext<GlobalContent>({
     setProdutos: () => { },
     alertMsg: "",
     setAlertMsg: () => { },
+    typeAlert: '',
+    setTypeAlert: () => { },
     isVisible: false,
     setIsVisible: () => { },
     produtoSelected: false,
-    setProdutoSelected: () => { }
+    setProdutoSelected: () => { },
+    showModalProduto: false,
+    setShowModalProduto: () => { },
 });

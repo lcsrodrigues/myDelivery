@@ -2,18 +2,15 @@ import { useEffect, useContext } from 'react';
 import style from './alerts.module.scss';
 import { MyGlobalContext } from '../context/GlobalContext';
 
-export interface IAlerts {
-    type?: string
-}
+export function Alerts() {
 
-export function Alerts({ ...props }: IAlerts) {
-
-    const { isVisible, setIsVisible, alertMsg } = useContext(MyGlobalContext);
+    const { isVisible, setIsVisible, alertMsg, typeAlert, setTypeAlert } = useContext(MyGlobalContext);
 
     useEffect(() => {
         if (isVisible) {
             setTimeout(() => {
                 setIsVisible(false);
+                setTypeAlert('default');
             }, 3000)
         }
     }, [isVisible])
@@ -22,7 +19,7 @@ export function Alerts({ ...props }: IAlerts) {
         <>
             {
                 isVisible &&
-                < div className={style.alerts} >
+                < div className={`${style.alerts} ${style[`${typeAlert}`]}`} >
                     <span>{alertMsg}</span>
                 </div >
             }

@@ -35,7 +35,6 @@ const ListaPedidos = () => {
         <>
             <Header />
             <MyGlobalContext.Provider value={{ totalPrice, setTotalPrice, produtos, setProdutos, alertMsg, setAlertMsg, isVisible, setIsVisible, produtoSelected, setProdutoSelected }}>
-                <Alerts />
                 <div className={style.body}>
                     <div className={style.container}>
                         <section className={style.sectionProduto}>

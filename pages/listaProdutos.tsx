@@ -4,7 +4,6 @@ import { ModalNovoProduto } from '../public/components/modal/Modal';
 const listaProdutos = () => {
     return (
         <>
-            <ModalNovoProduto />
             <Header />
             <Wizard />
             <Cardapio />
