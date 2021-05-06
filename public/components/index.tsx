@@ -1,5 +1,5 @@
 export * from './header/header';
-export * from './body/body';
+export * from './cardapio/cardapio';
 export * from './footer/footer';
 export * from './wizard/wizard';
 export * from './buttons/buttons';
@@ -9,3 +9,4 @@ export * from './closeOrder/closeOrder';
 export * from './filter/filter';
 export * from './address/address';
 export * from './alerts/alerts';
+export * from './menu/menu';

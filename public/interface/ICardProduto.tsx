@@ -3,4 +3,5 @@ export default interface ICardProduto{
     image?:any;
     price:number;
     description?:string;
+    produtoID:number;
 }

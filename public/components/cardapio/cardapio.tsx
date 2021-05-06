@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import style from './body.module.scss';
-import { CardProduto, Maps, CloseOrder, Filter, Address, Alerts } from '../../components';
+import style from './cardapio.module.scss';
+import { CardProduto, Maps, CloseOrder, Filter, Address, Alerts } from '..';
 import { MyGlobalContext } from '../context/GlobalContext';
 import axios from 'axios';
 
-export function Body() {
+export function Cardapio() {
 
     const [totalPrice, setTotalPrice] = useState(0);
     const [produtos, setProdutos] = useState(0);
     const [alertMsg, setAlertMsg] = useState("");
     const [isVisible, setIsVisible] = useState(false);
+    const [produtoSelected, setProdutoSelected] = useState(false);
     const [menu, setMenu] = useState([]);
 
     useEffect(() => {
@@ -31,7 +32,7 @@ export function Body() {
     }
 
     return (
-        <MyGlobalContext.Provider value={{ totalPrice, setTotalPrice, produtos, setProdutos, alertMsg, setAlertMsg, isVisible, setIsVisible }}>
+        <MyGlobalContext.Provider value={{ totalPrice, setTotalPrice, produtos, setProdutos, alertMsg, setAlertMsg, isVisible, setIsVisible, produtoSelected, setProdutoSelected }}>
             <Alerts />
             <div className={style.body}>
                 <div className={style.container}>
@@ -43,7 +44,7 @@ export function Body() {
                             menu.length &&
                             menu.map((item) => {
                                 return (
-                                    <CardProduto name={item.TITULO} image={`../../images/${item.IMAGEM}`} price={item.PRECO} description={limitDesc(item.DESCRICAO)} key={item.id} />
+                                    <CardProduto name={item.TITULO} image={`../../images/${item.IMAGEM}`} price={item.PRECO} description={limitDesc(item.DESCRICAO)} produtoID={item.id} key={item.id} />
                                 )
                             })
                         }

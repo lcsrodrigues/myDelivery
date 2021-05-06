@@ -9,6 +9,8 @@ export type GlobalContent = {
     setAlertMsg: (a: string) => void
     isVisible: boolean
     setIsVisible: (v: boolean) => void
+    produtoSelected:boolean
+    setProdutoSelected:(p: boolean) => void
 };
 
 export const MyGlobalContext = createContext<GlobalContent>({
@@ -19,5 +21,7 @@ export const MyGlobalContext = createContext<GlobalContent>({
     alertMsg: "",
     setAlertMsg: () => { },
     isVisible: false,
-    setIsVisible: () => { }
+    setIsVisible: () => { },
+    produtoSelected: false,
+    setProdutoSelected: () => { }
 });
