@@ -46,3 +46,45 @@ export function ModalNovoProduto() {
         </>
     )
 }
+
+export function ModalEsqueciSenha() {
+
+    const { showModalEsqueciSenha, setShowModalEsqueciSenha, setIsVisible, setTypeAlert, setAlertMsg } = useContext(MyGlobalContext);
+
+    const clickEvent = (e, typeAlert) => {
+        e.preventDefault();
+        setIsVisible(true);
+        setTypeAlert(typeAlert);
+        setAlertMsg('Email enviado com sucesso');
+    }
+
+    const closeModal = () => {
+        setShowModalEsqueciSenha(false);
+    }
+
+    return (
+        <>
+            {
+                showModalEsqueciSenha &&
+                <div className={style.modalEsqueciMinhaSenha} >
+                    <div className={style.header}>
+                        <div className={style.title}>
+                            <span>ESQUECI MINHA SENHA</span>
+                        </div>
+                        <div className={style.close}>
+                            <img src="/images/close.svg" alt="Fechar Modal" onClick={() => closeModal()} />
+                        </div>
+                    </div>
+                    <div className={style.content}>
+                        <Input type={"text"} placeholder={"Insira seu e-mail"} size={'x100'} />
+                    </div>
+                    <div className={style.actions}>
+                        <div className={style.btnEnviar} onClick={(e) => clickEvent(e, 'success')}>
+                            <span>Enviar</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </>
+    )
+}

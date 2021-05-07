@@ -2,7 +2,7 @@ import '../public/css/global.css'
 import React, { useState } from 'react';
 import { MyGlobalContext } from '../public/components/context/GlobalContext';
 import { Alerts } from '../public/components/alerts/alerts';
-import { ModalNovoProduto } from '../public/components/modal/Modal';
+import { ModalNovoProduto, ModalEsqueciSenha } from '../public/components/modal/Modal';
 
 export default function App({ Component, pageProps }) {
 
@@ -13,6 +13,7 @@ export default function App({ Component, pageProps }) {
    const [produtoSelected, setProdutoSelected] = useState(false);
    const [typeAlert, setTypeAlert] = useState('default');
    const [showModalProduto, setShowModalProduto] = useState(false);
+   const [showModalEsqueciSenha, setShowModalEsqueciSenha] = useState(false);
 
    return (
       <MyGlobalContext.Provider value={
@@ -23,11 +24,13 @@ export default function App({ Component, pageProps }) {
             typeAlert, setTypeAlert,
             isVisible, setIsVisible,
             produtoSelected, setProdutoSelected,
-            showModalProduto, setShowModalProduto
+            showModalProduto, setShowModalProduto,
+            showModalEsqueciSenha, setShowModalEsqueciSenha
          }
       }>
          <Alerts />
          <ModalNovoProduto />
+         <ModalEsqueciSenha />
          <Component {...pageProps} />
       </MyGlobalContext.Provider>
    )

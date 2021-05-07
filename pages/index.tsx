@@ -2,14 +2,20 @@ import styles from '../public/css/login.module.scss';
 import { Header, Footer } from '../public/components'
 import { BtnCadastrar, BtnLogar } from '../public/components/buttons/buttons';
 import { Input } from '../public/components/input/Input';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { MyGlobalContext } from '../public/components/context/GlobalContext';
 
 const Login = () => {
 
+    const { setShowModalEsqueciSenha } = useContext(MyGlobalContext);
     const [isLogin, setIsLogin] = useState(true);
 
     const changeBox = () => {
         setIsLogin(!isLogin);
+    }
+
+    const forgotPassword = () => {
+        setShowModalEsqueciSenha(true);
     }
 
     return (
@@ -34,6 +40,9 @@ const Login = () => {
                                     <BtnLogar />
                                     <p>
                                         Não tem conta? <strong onClick={changeBox}>Cadastre-se</strong>
+                                    </p>
+                                    <p className={styles.esqueciSenha} onClick={forgotPassword}>
+                                        Esqueci minha senha
                                     </p>
                                 </div>
                             </div>
