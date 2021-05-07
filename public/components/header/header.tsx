@@ -9,7 +9,7 @@ export function Header() {
     const router = useRouter();
 
     const [isLogin, setIsLogin] = useState(false);
-    const [URL, setURL] = useState(router.pathname);
+    const [URL] = useState(router.pathname);
 
     useEffect(() => {
         const changeURL = () => {
@@ -21,26 +21,6 @@ export function Header() {
         changeURL();
 
     }, []);
-
-    // useEffect(() => {
-    //     const getAllProdutos = () => {
-    //         axios.get('https://webapimydelivery.com.br/Cardapio')
-    //             .then(response => {
-    //                 setMenu(response.data);
-    //             }).catch(err => { console.log(err) })
-    //     }
-
-    //     getAllProdutos();
-    // }, []);
-
-    // useEffect(() => {
-    //     const configURL = () => {
-    //         setURL(window.location.pathname);
-    //     }
-
-    //     configURL();
-
-    // }, [URL])
 
     return (
         <div className={styles.header}>

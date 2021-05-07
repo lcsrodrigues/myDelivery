@@ -1,6 +1,8 @@
 import style from './buttons.module.scss';
 import { useRouter } from 'next/router';
 import { routerEnum } from '../../enum/enum';
+import { MyGlobalContext } from '../context/GlobalContext';
+import { useContext } from 'react';
 
 export function BtnEnviarPedido() {
     return (
@@ -29,6 +31,24 @@ export function BtnLogar() {
     return (
         <div className={style.btnLogar} onClick={(e) => clickEvent(e)}>
             <span>Logar</span>
+        </div>
+    )
+}
+
+export function BtnCadastrar() {
+
+    const { setIsVisible, setAlertMsg, setTypeAlert } = useContext(MyGlobalContext);
+
+    const clickEvent = (e) => {
+        e.preventDefault();
+        setIsVisible(true);
+        setAlertMsg('Cadastrado com sucesso');
+        setTypeAlert('success');
+    }
+
+    return (
+        <div className={style.btnCadastrar} onClick={(e) => clickEvent(e)}>
+            <span>Cadastrar</span>
         </div>
     )
 }
